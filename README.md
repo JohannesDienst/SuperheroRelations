@@ -5,12 +5,14 @@ https://github.com/blove/typescript-express-starter
 https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 
 ## Instructions
+npm install: Installs all dependencies
 npm start: Starts application on port 8089
 
 ## List of Commands to show
 In src/ tsc --init
 
 Add in tsconfig.json:
+```json
 {
     "compilerOptions": {
         ...
@@ -23,9 +25,11 @@ Add in tsconfig.json:
         "node_modules"
     ]
 }
+```
 
 ## Setup TypeScript-WatchJob
 In package.json:
+```json
 {
   ...
   "scripts": {
@@ -36,15 +40,18 @@ In package.json:
   },
   ...
 }
+```
 
 ## Create Routes
 src/routes/base_route.ts
 src/routes/index_route.ts
 
 ## Implement routes() in server.ts
+```javascript
 private routes() {
   let router: express.Router;
   router = express.Router();
   IndexRoute.create(router);
   this.app.use(router);
 }
+```
