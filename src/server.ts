@@ -7,6 +7,7 @@ import errorHandler = require("errorhandler");
 import methodOverride = require("method-override");
 
 import { IndexRoute } from "./routes/index_route";
+import { HeroRoute } from "./routes/hero_route";
 
 export class Server {
 
@@ -65,6 +66,7 @@ export class Server {
     });
 
     IndexRoute.create(router);
+    HeroRoute.create(router);
 
     this.app.use(router);
   }
