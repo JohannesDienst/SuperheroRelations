@@ -1,7 +1,9 @@
+/// <reference path="../hero_db.ts" />
+
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./base_route";
 
-const data = require("../../hero_db.json");
+const data: HeroDB = require("../../hero_db.json");
 
 export class HeroRoute extends BaseRoute {
 
@@ -38,10 +40,13 @@ export class HeroRoute extends BaseRoute {
 
   private checkIdExists (req: Request, res: Response, next) {
     let id = parseInt(req.params.id, 10);
-    let hero = data.heros.find(h => h.id === id);
+    
+    let hero = data.heros.filter(
+      function f(h: Hero) { return h.id === id; }
+    );
 
-    if (hero) {
-      req['hero'] = hero;
+    if (hero.length > 0) {
+      req['hero'] = hero[0];
       next();
     } else {
       res.status(404).send('Invalid hero ID');
