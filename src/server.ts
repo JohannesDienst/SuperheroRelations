@@ -6,9 +6,6 @@ import * as path from "path";
 import errorHandler = require("errorhandler");
 import methodOverride = require("method-override");
 
-import { IndexRoute } from "./routes/index_route";
-import { HeroRoute } from "./routes/hero_route";
-
 export class Server {
 
   public app: express.Application;
@@ -64,9 +61,6 @@ export class Server {
       console.log('Incoming request');
       next();
     });
-
-    IndexRoute.create(router);
-    HeroRoute.create(router);
 
     this.app.use(router);
   }
