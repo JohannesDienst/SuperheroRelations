@@ -16,16 +16,8 @@ export class Server {
 
   constructor() {
     this.app = express();
-
     this.config();
-
     this.routes();
-
-    this.api();
-  }
-
-  public api() {
-    //empty for now
   }
 
   public config() {
