@@ -1,12 +1,13 @@
 # SuperheroRelations: A TypeScript+Express app for Livecoding
 
 Sources used:
-https://github.com/blove/typescript-express-starter
-https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+- https://github.com/blove/typescript-express-starter
+- https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 
 ## Instructions
-npm install: Installs all dependencies
-npm start: Starts application on port 8089
+- npm install: Installs all dependencies
+- npm start: Starts application on port 8089
+- npm run dev: Starts application on port 8089 in development-mode with nodemon
 
 ## List of Commands to show
 In src/ tsc --init
@@ -43,8 +44,9 @@ In package.json:
 ```
 
 ## Create Routes
-src/routes/base_route.ts
-src/routes/index_route.ts
+- src/routes/base_route.ts
+- src/routes/index_route.ts
+- src/routes/hero_route.ts
 
 ## Implement routes() in server.ts
 ```javascript
