@@ -27,18 +27,40 @@ export class HeroRoute extends BaseRoute {
     let routes = new HeroRoute();
 
     router.get("/heros", routes.list);
-    router.get('/heros/:id', [routes.checkIdExists, routes.find]);
-    router.post('/heros/:id', [routes.checkIdExists, routes.post]);
-    router.patch('/heros/:id', [routes.checkIdExists, routes.patch]);
-    router.put('/heros/:id', [routes.checkIdExists, routes.put]);
-    router.delete('/heros/:id', [routes.checkIdExists, routes.delete]);
+    router.get('/heros/:id', [routes.checkHeroExists, routes.find]);
+    router.post('/heros',
+      [routes.validateId, routes.validateName, routes.checkHeroExists, routes.post]
+    );
+    router.patch('/heros/:id', [routes.checkHeroExists, routes.patch]);
+    router.delete('/heros/:id', [routes.checkHeroExists, routes.delete]);
   }
 
   constructor() {
     super();
   }
 
-  private checkIdExists (req: Request, res: Response, next) {
+  private validateId(req: Request, res: Response, next) {
+    let id = parseInt(req.params.id, 10);
+    
+    if (isNaN(id)) {
+      next();
+    } else {
+      res.status(404).send('Invalid id');
+    }
+  }
+
+  private validateName(req: Request, res: Response, next) {
+    let name = req.params.name;
+
+    let re = new RegExp("^([a-zA-Z]{2,30})$");
+    if (re.test(name)) {
+      next();
+    } else {
+      res.status(404).send('Invalid id');
+    }
+  }
+
+  private checkHeroExists(req: Request, res: Response, next) {
     let id = parseInt(req.params.id, 10);
     
     let hero = data.heros.filter(
@@ -60,7 +82,7 @@ export class HeroRoute extends BaseRoute {
 
   public find(req: Request, res: Response) {
     console.log("find");
-    res.json(req["hero"]);
+    res.status(200).json(req["hero"]);
   }
 
   public post(req: Request, res: Response) {
@@ -70,11 +92,6 @@ export class HeroRoute extends BaseRoute {
 
   public patch(req: Request, res: Response) {
     console.log("patch");
-    res.json(req["hero"]);
-  }
-
-  public put(req: Request, res: Response) {
-    console.log("put");
     res.json(req["hero"]);
   }
 
