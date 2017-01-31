@@ -29,10 +29,10 @@ export class HeroRoute extends BaseRoute {
     router.get("/heros", routes.list);
     router.get('/heros/:id', [routes.checkHeroExists, routes.find]);
     router.post('/heros',
-      [routes.validateId, routes.validateName, routes.checkHeroExists, routes.post]
+      [routes.validateId, routes.validateName, routes.post]
     );
-    router.patch('/heros/:id', [routes.checkHeroExists, routes.patch]);
-    router.delete('/heros/:id', [routes.checkHeroExists, routes.delete]);
+    // router.patch('/heros/:id', [routes.checkHeroExists, routes.patch]);
+    // router.delete('/heros/:id', [routes.checkHeroExists, routes.delete]);
   }
 
   constructor() {
@@ -40,12 +40,15 @@ export class HeroRoute extends BaseRoute {
   }
 
   private validateId(req: Request, res: Response, next) {
-    let id = parseInt(req.params.id, 10);
-    
+    console.log(req.body);
+    let hero: Hero = req.body.hero;
+    let id = hero.id;
+
     if (isNaN(id)) {
-      next();
-    } else {
       res.status(404).send('Invalid id');
+    } else {
+      req['hero'] = hero;
+      next();
     }
   }
 
@@ -64,7 +67,7 @@ export class HeroRoute extends BaseRoute {
     let id = parseInt(req.params.id, 10);
     
     let hero = data.heros.filter(
-      function f(h: Hero) { return h.id === id; }
+      (h: Hero) => { return h.id === id; }
     );
 
     if (hero.length > 0) {
@@ -87,9 +90,12 @@ export class HeroRoute extends BaseRoute {
 
   public post(req: Request, res: Response) {
     console.log("post");
-    res.json(req["hero"]);
+    let hero: Hero = req["hero"];
+    data.heros.push(hero)
+    res.status(200).json(data);
   }
 
+  // Patch and delete not implemented
   public patch(req: Request, res: Response) {
     console.log("patch");
     res.json(req["hero"]);
