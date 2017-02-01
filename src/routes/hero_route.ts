@@ -39,7 +39,7 @@ export class HeroRoute extends BaseRoute {
     super();
   }
 
-  private validateId(req: Request, res: Response, next) {
+  private validateId(req: Request, res: Response, next: NextFunction) {
     console.log(req.body);
     let hero: Hero = req.body.hero;
     let id = hero.id;
@@ -52,7 +52,7 @@ export class HeroRoute extends BaseRoute {
     }
   }
 
-  private validateName(req: Request, res: Response, next) {
+  private validateName(req: Request, res: Response, next: NextFunction) {
     let name = req.params.name;
 
     let re = new RegExp("^([a-zA-Z]{2,30})$");
@@ -63,7 +63,7 @@ export class HeroRoute extends BaseRoute {
     }
   }
 
-  private checkHeroExists(req: Request, res: Response, next) {
+  private checkHeroExists(req: Request, res: Response, next: NextFunction) {
     let id = parseInt(req.params.id, 10);
     
     let hero = data.heros.filter(
