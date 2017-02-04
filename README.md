@@ -28,6 +28,25 @@ Add in tsconfig.json:
 }
 ```
 
+## Install development dependencies
+npm install --save-dev typescript
+npm install --save-dev nodemon
+
+## Install dependencies
+nom install --save body-parser
+nom install --save cookie-parser
+nom install --save errorhandler
+nom install --save express
+nom install --save method-override
+nom install --save morgan
+
+## Install Typescript definition files
+npm install --save-dev @types/body-parser
+npm install --save-dev @types/cookie-parser
+npm install --save-dev @types/errorhandler
+npm install --save-dev @types/method-override
+npm install --save-dev @types/morgen
+
 ## Setup TypeScript-WatchJob
 In package.json:
 ```json
