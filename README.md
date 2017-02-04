@@ -3,6 +3,7 @@
 Sources used:
 - https://github.com/blove/typescript-express-starter
 - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+- https://visualstudiomagazine.com/articles/2013/10/01/calling-web-services-with-typescript.aspx
 
 ## Instructions
 - npm install: Installs all dependencies
