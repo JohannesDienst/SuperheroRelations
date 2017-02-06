@@ -32,7 +32,6 @@ Add in tsconfig.json:
 ## Install development dependencies
 npm install --save-dev typescript
 npm install --save-dev nodemon
-npm install --save-dev ts-promise
 
 ## Install dependencies
 npm install --save body-parser
