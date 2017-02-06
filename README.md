@@ -3,6 +3,7 @@
 Sources used:
 - https://github.com/blove/typescript-express-starter
 - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+- https://visualstudiomagazine.com/articles/2013/10/01/calling-web-services-with-typescript.aspx
 
 ## Instructions
 - npm install: Installs all dependencies
@@ -27,6 +28,28 @@ Add in tsconfig.json:
     ]
 }
 ```
+
+## Install development dependencies
+npm install --save-dev typescript
+npm install --save-dev nodemon
+npm install --save-dev ts-promise
+
+## Install dependencies
+npm install --save body-parser
+npm install --save cookie-parser
+npm install --save errorhandler
+npm install --save express
+npm install --save method-override
+npm install --save morgan
+npm install --save webpack
+
+## Install Typescript definition files
+npm install --save-dev @types/body-parser
+npm install --save-dev @types/cookie-parser
+npm install --save-dev @types/errorhandler
+npm install --save-dev @types/method-override
+npm install --save-dev @types/morgan
+npm install --save-dev @types/jquery
 
 ## Setup TypeScript-WatchJob
 In package.json:
