@@ -49,6 +49,7 @@ npm install --save-dev @types/errorhandler
 npm install --save-dev @types/method-override
 npm install --save-dev @types/morgan
 npm install --save-dev @types/jquery
+npm install --save @types/es6-promise
 
 ## Setup TypeScript-WatchJob
 In package.json:

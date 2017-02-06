@@ -6,6 +6,6 @@ body {
   text-align: center;
 }
 
-.glyphicon {
+#get_async, #async_await {
   cursor: pointer;
 }
