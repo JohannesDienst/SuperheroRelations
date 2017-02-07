@@ -25,7 +25,8 @@ Add in tsconfig.json:
     "compileOnSave": false,
     "exclude": [
         "node_modules"
-    ]
+    ],
+    "moduleResolution": "node"
 }
 ```
 
