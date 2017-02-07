@@ -1,9 +1,9 @@
 /// <reference path="../hero_db.ts" />
 
+const data: HeroDB = require("../../hero_db.json");
+
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./base_route";
-
-const data: HeroDB = require("../../hero_db.json");
 
 export class HeroRoute extends BaseRoute {
 
