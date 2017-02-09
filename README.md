@@ -19,7 +19,7 @@ Add in tsconfig.json:
     "compilerOptions": {
         ...
         "rootDir": ".",
-        "outDir": "../build",
+        "outDir": "./../build",
         "removeComments": true
     },
     "compileOnSave": false,
